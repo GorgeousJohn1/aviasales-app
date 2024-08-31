@@ -1,0 +1,38 @@
+.card {
+  height: 184px;
+  background-color: #ffffff;
+  padding: 1.25rem;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    height: 2.25rem;
+    margin-bottom: 1.25rem;
+
+    p {
+      font-size: 1.5rem;
+      color: #2196f3;
+    }
+  }
+
+  &__destination {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__destination-heading {
+    display: flex;
+    justify-content: space-between;
+    color: #a0b0b9;
+    line-height: 1.125rem;
+  }
+  &__destination-description {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.125rem;
+  }
+}

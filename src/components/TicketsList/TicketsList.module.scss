@@ -1,0 +1,13 @@
+.tickets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.btn {
+  height: 50px;
+  background-color: #2196f3;
+  color: #ffffff;
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+}

@@ -1,0 +1,25 @@
+.sorter {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px;
+  border: 1px solid #dfe5ec;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.btn {
+  height: 100%;
+  flex: 1;
+  border-right: 1px solid #dfe5ec;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover,
+  &:active {
+    background-color: #2196f3;
+    color: #ffffff;
+  }
+}

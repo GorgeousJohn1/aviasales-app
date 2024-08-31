@@ -24,5 +24,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'jsx-a11y/label-has-associated-control': 0,
   },
 };
