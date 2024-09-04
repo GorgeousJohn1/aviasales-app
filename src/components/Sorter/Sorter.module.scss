@@ -17,9 +17,15 @@
     border-right: none;
   }
 
-  &:hover,
-  &:active {
+  &:hover {
+    background-color: #f1fcff;
+  }
+
+  &__active {
     background-color: #2196f3;
     color: #ffffff;
+    &:hover {
+      background-color: #2196f3;
+    }
   }
 }

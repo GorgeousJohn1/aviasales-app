@@ -1,14 +1,11 @@
 import classes from './Sorter.module.scss';
+import TabButton from './TabButton';
 
 export default function Sorter() {
   return (
     <div className={classes.sorter}>
-      <button className={classes.btn} type="button">
-        Самый дешевый
-      </button>
-      <button className={classes.btn} type="button">
-        Самый быстрый
-      </button>
+      <TabButton value="cheapest">Самый дешевый</TabButton>
+      <TabButton value="fastest">Самый быстрый</TabButton>
     </div>
   );
 }

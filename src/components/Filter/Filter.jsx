@@ -1,4 +1,5 @@
 import classes from './Filter.module.scss';
+import InputFilter from './InputFilter';
 
 export default function Filter() {
   return (
@@ -6,36 +7,19 @@ export default function Filter() {
       <h2>Количество пересадок</h2>
       <ul>
         <li>
-          <label>
-            <input className={classes.checkbox} type="checkbox" />{' '}
-            <span className={classes['custom-checkbox']} />
-            Все
-          </label>
+          <InputFilter value="all">Все</InputFilter>
         </li>
         <li>
-          <label>
-            <input className={classes.checkbox} type="checkbox" />{' '}
-            <span className={classes['custom-checkbox']} />
-            Без пересадок
-          </label>
+          <InputFilter value="none">Без пересадок</InputFilter>
         </li>
         <li>
-          <label>
-            <input className={classes.checkbox} type="checkbox" />{' '}
-            <span className={classes['custom-checkbox']} />1 пересадка
-          </label>
+          <InputFilter value="one">1 пересадка</InputFilter>
         </li>
         <li>
-          <label>
-            <input className={classes.checkbox} type="checkbox" />{' '}
-            <span className={classes['custom-checkbox']} />2 пересадки
-          </label>
+          <InputFilter value="two">2 пересадки</InputFilter>
         </li>
         <li>
-          <label>
-            <input className={classes.checkbox} type="checkbox" />{' '}
-            <span className={classes['custom-checkbox']} />3 пересадки
-          </label>
+          <InputFilter value="three">3 пересадки</InputFilter>
         </li>
       </ul>
     </div>

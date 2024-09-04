@@ -14,7 +14,7 @@ module.exports = {
   settings: { react: { version: 'detect' } },
   plugins: ['react-refresh', 'jsx-a11y'],
   rules: {
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
     'react/jsx-no-target-blank': 'off',
     'react/require-default-props': [2, { functions: 'defaultArguments' }],
     'comma-dangle': 0,
@@ -25,5 +25,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'jsx-a11y/label-has-associated-control': 0,
+    'default-param-last': 0,
+    'no-case-declarations': 0,
   },
 };
