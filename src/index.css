@@ -1,6 +1,13 @@
 @font-face {
   font-family: 'Open Sans';
-  src: url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+  src: url('/public/font/open-sans.regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/public/font/open-sans.semibold.ttf') format('truetype');
+  font-weight: 600;
 }
 *,
 *:before,
