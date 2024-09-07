@@ -23,7 +23,7 @@ function App() {
   return (
     <div className={classes.app}>
       <header className={classes['app-header']}>
-        <img src="/public/Logo.png" alt="aviasales-logo" />
+        <img src="/Logo.png" alt="aviasales-logo" />
       </header>
       <main className={classes['app-main']}>
         <Filter />
