@@ -7,6 +7,7 @@
   &__meta {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 2.25rem;
     margin-bottom: 1.25rem;
 
@@ -18,21 +19,25 @@
 
   &__destination {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
+  &__destination-tab {
+    flex-basis: 7.5rem;
+  }
+
   &__destination-heading {
-    display: flex;
-    justify-content: space-between;
     color: #a0b0b9;
     line-height: 1.125rem;
   }
   &__destination-description {
-    display: flex;
-    justify-content: space-between;
     line-height: 1.125rem;
+    font-size: 14px;
   }
 }

@@ -3,7 +3,7 @@ import { fetchSearchID, fetchTickets } from '../api/api';
 const initialState = {
   searchID: null,
   isLoading: true,
-  error: false,
+  error: [],
   ticketsData: [],
 };
 
@@ -13,12 +13,7 @@ export const getSearchID = (value) => ({
 });
 
 export const toggleLoading = () => ({
-  type: 'tickets/getSearchID',
-});
-
-export const setError = (value) => ({
-  type: 'tickets/setError',
-  payload: value,
+  type: 'tickets/toggleLoading',
 });
 
 export const getTickets = (value) => ({
@@ -26,16 +21,22 @@ export const getTickets = (value) => ({
   payload: value,
 });
 
+export const pushError = (value) => ({
+  type: 'tickets/pushError',
+  payload: value,
+});
+
 export default function ticketsReducer(state = initialState, action) {
   switch (action.type) {
     case 'tickets/getSearchID':
+      if (state.searchID) return { ...state };
       return { ...state, searchID: action.payload };
 
     case 'tickets/toggleLoading':
       return { ...state, isLoading: !state.isLoading };
 
-    case 'tickets/setError':
-      return { ...state, error: action.payload };
+    case 'tickets/pushError':
+      return { ...state, error: [...state.error, action.payload] };
 
     case 'tickets/pushTickets':
       return {
@@ -49,13 +50,25 @@ export default function ticketsReducer(state = initialState, action) {
 }
 
 export const getSearchIdThunk = () => (dispatch) => {
-  fetchSearchID().then((res) => {
-    dispatch(getSearchID(res));
-  });
+  fetchSearchID()
+    .then((res) => {
+      dispatch(getSearchID(res));
+    })
+    .catch((err) => dispatch(pushError(err.message)));
 };
 
 export const getTicketsThunk = (searchID) => (dispatch) => {
-  fetchTickets(searchID).then((res) => {
-    dispatch(getTickets(res));
-  });
+  fetchTickets(searchID)
+    .then((res) => {
+      dispatch(getTickets(res.tickets));
+      if (!res.stop) {
+        dispatch(getTicketsThunk(searchID));
+      } else {
+        dispatch(toggleLoading());
+      }
+    })
+    .catch((err) => {
+      dispatch(pushError(err.message));
+      dispatch(getTicketsThunk(searchID));
+    });
 };

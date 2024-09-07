@@ -6,13 +6,17 @@ import classes from './App.module.scss';
 import Filter from '../Filter/Filter';
 import Sorter from '../Sorter/Sorter';
 import TicketsList from '../TicketsList/TicketsList';
+import Loader from '../Loader/Loader';
 
 function App() {
   const dispatch = useDispatch();
   const searchID = useSelector((state) => state.tickets.searchID);
+  const isLoading = useSelector((state) => state.tickets.isLoading);
 
   useEffect(() => {
-    if (!searchID) dispatch(getSearchIdThunk());
+    if (!searchID) {
+      dispatch(getSearchIdThunk());
+    }
     if (searchID) dispatch(getTicketsThunk(searchID));
   }, [searchID, dispatch]);
 
@@ -25,6 +29,7 @@ function App() {
         <Filter />
         <section className={classes['app-tickets']}>
           <Sorter />
+          {isLoading ? <Loader /> : null}
           <TicketsList />
         </section>
       </main>

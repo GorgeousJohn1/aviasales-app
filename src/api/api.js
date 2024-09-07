@@ -1,18 +1,29 @@
 export async function fetchSearchID() {
-  const response = await fetch(
-    'https://aviasales-test-api.kata.academy/search'
-  );
-  const json = await response.json();
+  try {
+    const response = await fetch(
+      'https://aviasales-test-api.kata.academy/search'
+    );
+    const data = await response.json();
 
-  return json.searchId;
+    return data.searchId;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 export async function fetchTickets(searchID) {
-  const response = await fetch(
-    `https://aviasales-test-api.kata.academy/tickets?searchId=${searchID}`
-  );
+  try {
+    const response = await fetch(
+      `https://aviasales-test-api.kata.academy/tickets?searchId=${searchID}`
+    );
 
-  const json = await response.json();
+    if (!response.ok)
+      throw new Error(`Couldn't fetch. Status error: ${response.status}`);
 
-  return json.tickets;
+    const data = await response.json();
+
+    return data;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
